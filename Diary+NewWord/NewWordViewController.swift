@@ -121,9 +121,8 @@ class NewWordViewController: UIViewController {
 //        default:
 //            resultLabel.text = "검색결과가 없습니다."
 //        }
-        
         //Dictionary
-        if let searchText = searchTextField.text, let result = newWordDic[searchText] {
+        if let searchText = searchTextField.text?.uppercased(), let result = newWordDic[searchText] {
             resultLabel.text = result
         } else {
             resultLabel.text = "검색결과가 없습니다."
