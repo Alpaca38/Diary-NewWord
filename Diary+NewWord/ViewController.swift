@@ -33,15 +33,10 @@ class ViewController: UIViewController {
         let buttons = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninethButton]
         
         for (index, button) in buttons.enumerated() {
-            button?.configuration?.imagePlacement = .top
-            button?.configuration?.imagePadding = 8
-            
-            // Array
-//            button?.setImage(configureImage(name: "slime\(index + 1)"), for: .normal)
-//            button?.setTitle("\(labels[index]) 0", for: .normal)
-            
             // Dictionary
             if let button {
+                button.configuration?.imagePlacement = .top
+                button.configuration?.imagePadding = 8
                 buttonDic[button] = (labels[index], 0)
                 button.setImage(configureImage(name: "slime\(index + 1)"), for: .normal)
                 button.setTitle("\(labels[index]) 0", for: .normal)
@@ -59,12 +54,6 @@ class ViewController: UIViewController {
         let buttons = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninethButton]
         buttonTapped(button: buttons[sender.tag]!)
     }
-    
-    // Array
-//    func buttonTapped(index: Int, button: UIButton) {
-//        counts[index] += 1
-//        button.setTitle("\(labels[index]) \(counts[index])", for: .normal)
-//    }
     
     // Dictionary
     func buttonTapped(button: UIButton) {

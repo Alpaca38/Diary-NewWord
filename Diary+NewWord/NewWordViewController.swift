@@ -98,8 +98,8 @@ class NewWordViewController: UIViewController {
         let shuffledNewWords = Array(newWordDic.keys).shuffled()
         
         
-        for (index, element) in buttons.enumerated() {
-            element?.setTitle("\(shuffledNewWords[index])", for: .normal)
+        for (index, button) in buttons.enumerated() {
+            button?.setTitle("\(shuffledNewWords[index])", for: .normal)
         }
     }
     
