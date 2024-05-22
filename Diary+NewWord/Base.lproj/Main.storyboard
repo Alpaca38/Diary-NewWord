@@ -122,12 +122,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-K3-wvt">
+                                <rect key="frame" x="276" y="585.66666666666663" width="75" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ojn-6X-sHh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AeP-Eg-H9q"/>
                             <constraint firstItem="bh5-d6-Qxd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="JYQ-NI-j5o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djJ-K3-wvt" secondAttribute="trailing" constant="42" id="JcR-ut-Wh5"/>
+                            <constraint firstItem="djJ-K3-wvt" firstAttribute="top" secondItem="wIu-m8-a90" secondAttribute="bottom" constant="31.329999999999998" id="XW2-Na-UcB"/>
                             <constraint firstItem="wIu-m8-a90" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yq4-BD-dFy"/>
                             <constraint firstItem="hlg-MI-6me" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="doa-Im-KWy"/>
                             <constraint firstItem="Ojn-6X-sHh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87" id="hOi-8C-XxB"/>
@@ -146,6 +153,7 @@
                         <outlet property="firstButton" destination="4OQ-eY-BRx" id="Z2k-gF-FEf"/>
                         <outlet property="fourthButton" destination="NKx-xR-L8d" id="fmR-11-9lS"/>
                         <outlet property="ninethButton" destination="The-lu-Kr5" id="g1D-9Z-Gn0"/>
+                        <outlet property="resetButton" destination="djJ-K3-wvt" id="cFP-ZR-U9v"/>
                         <outlet property="secondButton" destination="AaC-qu-gR9" id="1r1-EC-RcO"/>
                         <outlet property="seventhButton" destination="bh5-d6-Qxd" id="mmK-QO-4bk"/>
                         <outlet property="sixthButton" destination="yNu-Lr-VH6" id="NBJ-yN-8HL"/>

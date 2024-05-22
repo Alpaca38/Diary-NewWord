@@ -18,9 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet var seventhButton: UIButton!
     @IBOutlet var eighthButton: UIButton!
     @IBOutlet var ninethButton: UIButton!
+    @IBOutlet var resetButton: UIButton!
     
-    // Array
-//    var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     let labels = ["행복해","사랑해","좋아해","당황해","속상해","우울해","심심해","원통해","비참해"]
     
     // Dictionary
@@ -32,12 +31,22 @@ class ViewController: UIViewController {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "counts")
+            configureButtons()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureButtons()
+        
+        resetButton.setTitle("리셋", for: .normal)
+        resetButton.layer.cornerRadius = 5
+        resetButton.layer.borderWidth = 1
+        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureButtons() {
         let buttons = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninethButton]
         
         for (index, button) in buttons.enumerated() {
@@ -59,23 +68,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func firstButtonTapped(_ sender: UIButton) {
-        let buttons = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninethButton]
         if var data = buttonDic[sender] {
             data.count += 1
             buttonDic[sender] = data
-            sender.setTitle("\(data.label) \(data.count)", for: .normal)
             counts[sender.tag] = data.count
         }
     }
     
-    // Dictionary
-//    func buttonTapped(button: UIButton) {
-//        if var data = buttonDic[button] {
-//            data.count += 1
-//            buttonDic[button] = data
-//            button.setTitle("\(data.label) \(data.count)", for: .normal)
-//        }
-//    }
+    @objc func resetButtonTapped() {
+        counts = [0,0,0,0,0,0,0,0,0]
+    }
 }
 
 extension UIImage {
