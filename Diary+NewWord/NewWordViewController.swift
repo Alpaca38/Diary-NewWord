@@ -31,8 +31,19 @@ class NewWordViewController: UIViewController {
         "700":"'귀여워'에서 자음만 쓰면 ㄱㅇㅇ입니다. 이를 숫자로 바꿔서 700이라고 씁니다.",
         "빠태":"'빠른 태세 전환'의 줄임말입니다."]
     
+    var recentSearch: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "recent")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "recent")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchTextField.text = recentSearch
         
         searchTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         searchTextField.leftViewMode = .always
@@ -104,28 +115,12 @@ class NewWordViewController: UIViewController {
     }
     
     func search() {
-        //Array
-//        switch searchTextField.text {
-//        case newWords[0]:
-//            resultLabel.text = newWordsExplains[0]
-//        case newWords[1]:
-//            resultLabel.text = newWordsExplains[1]
-//        case newWords[2]:
-//            resultLabel.text = newWordsExplains[2]
-//        case newWords[3]:
-//            resultLabel.text = newWordsExplains[3]
-//        case newWords[4]:
-//            resultLabel.text = newWordsExplains[4]
-//        case newWords[5]:
-//            resultLabel.text = newWordsExplains[5]
-//        default:
-//            resultLabel.text = "검색결과가 없습니다."
-//        }
         //Dictionary
         if let searchText = searchTextField.text?.uppercased(), let result = newWordDic[searchText] {
             resultLabel.text = result
         } else {
             resultLabel.text = "검색결과가 없습니다."
         }
+        recentSearch = searchTextField.text
     }
 }
